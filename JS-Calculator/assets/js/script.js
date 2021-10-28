@@ -6,7 +6,7 @@ const resultButton = document.getElementById("result");
 const mathOperators = document.querySelectorAll(".math");
 //Array for calculation.
 let resultArr = [];
-let val = "";
+let val = " ";
 //Setting up the button functionality and display
 buttons.forEach(item => item.addEventListener('click', () => {
     display.innerText += item.innerText;
@@ -17,14 +17,13 @@ buttons.forEach(item => item.addEventListener('click', () => {
 clearButton.addEventListener('click', () => {
     display.innerText = "";
     resultArr = [];
-    val = "";
+    val = " ";
 });
 
 //Result Button
 resultButton.addEventListener('click', () => {
     resultArr.push(val);
     calculate(resultArr);
-    console.log(resultArr)
     display.innerText = resultArr[0];
     val = resultArr[0];
     resultArr = [];
@@ -34,13 +33,14 @@ resultButton.addEventListener('click', () => {
 //Math Operators
 mathOperators.forEach(item => item.addEventListener('click', () => {
 
+    if (val == "") {
+        return;
+    }
     resultArr.push(val);
     val = "";
     resultArr.push(item.innerText);
     display.innerText += item.innerText;
-    if (resultArr[resultArr.length - 1] == "/" || resultArr[resultArr.length - 1] == "*" || resultArr[resultArr.length - 1] == "-" || resultArr[resultArr.length - 1] == "+") {
-        return;
-    }
+
 
 
 }));
