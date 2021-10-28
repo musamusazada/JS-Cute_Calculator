@@ -33,14 +33,14 @@ resultButton.addEventListener('click', () => {
 
 //Math Operators
 mathOperators.forEach(item => item.addEventListener('click', () => {
-    if (resultArr[resultArr.length - 1] == "/" || resultArr[resultArr.length - 1] == "*" || resultArr[resultArr.length - 1] == "-" || resultArr[resultArr.length - 1] == "+") {
-        return;
-    }
+
     resultArr.push(val);
     val = "";
     resultArr.push(item.innerText);
     display.innerText += item.innerText;
-    console.log(resultArr)
+    if (resultArr[resultArr.length - 1] == "/" || resultArr[resultArr.length - 1] == "*" || resultArr[resultArr.length - 1] == "-" || resultArr[resultArr.length - 1] == "+") {
+        return;
+    }
 
 
 }));
