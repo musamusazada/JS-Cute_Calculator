@@ -33,7 +33,9 @@ resultButton.addEventListener('click', () => {
 
 //Math Operators
 mathOperators.forEach(item => item.addEventListener('click', () => {
-    console.log(resultArr)
+    if (resultArr[resultArr.length - 1] == "/" || resultArr[resultArr.length - 1] == "*" || resultArr[resultArr.length - 1] == "-" || resultArr[resultArr.length - 1] == "+") {
+        return;
+    }
     resultArr.push(val);
     val = "";
     resultArr.push(item.innerText);
